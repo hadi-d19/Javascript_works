@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day4_hw</title>
+    <!-- You are creating a simple game result generator for a beginner-level web game.
+Create a script that:
+Randomly picks a number between 1 and 50 (representing a mystery level).
+Takes a user input score (as a string, e.g., "45") and converts it into a number.
+Shows the absolute difference between the mystery level and the user's score.
+Calculates and logs the square root of the user’s score.
+Logs the value of Pi (?) using a math property.
+Uses implicit conversion to multiply the string "20" by 5.
+Uses the Math.max() and Math.min() methods to display the highest and lowest values among 10, 20, and the mystery level. -->
+
+
+</head>
+<body>
+    <h3>Mystery Level</h3>
+    <p id="demo"></p>
+ <script>
+    function random(min,max)
+    {
+        const num = Math.floor(Math.random() * (max - min + 1) + min);
+        return num;
+    }
+       const mysterylevel = random(1,50);
+
+       const convert= "45"
+       const userscore = Number(convert);
+
+       const difference = Math.abs(mysterylevel - userscore);
+
+       const square = Math.sqrt(userscore);
+       console.log(`square root = ${square}`);
+
+       const pi_num = Math.PI;
+       console.log(`value of pi = ${pi_num}`);
+
+       const implicit = "20" * 5;
+       const Min = Math.min(10,20,mysterylevel);
+       const Max = Math.max(10,20,mysterylevel);
+       
+       let output =`
+       Mystery Level= ${mysterylevel}<br>
+       User score = ${userscore}<br>
+       Absolute Difference = ${difference}<br>
+       Square Root = ${square}<br>
+       Pi Number = ${pi_num}<br>
+       Implicit conversion = ${implicit}<br>
+       <b> Minimum Number = ${Min}</b><br>
+       <b> Maximum Number = ${Max}</b>`;
+
+        document.getElementById("demo").innerHTML = output;
+        console.log({
+    mysterylevel,
+    userscore,
+    difference,
+    square,
+    pi_num,
+    implicit,
+    Min,
+    Max
+});
+    </script>
+
+</body>
+</html>
