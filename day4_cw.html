@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day4_cw</title>
+    <!-- You are building a small statistics widget for a website.
+Generate a random whole number between 1 and 100.
+Simulate a user score as a string value (like "75").
+Convert the user score string to a number using type conversion (without using any conditionals).
+Show the difference between the random number and user score.
+Show the rounded square root of the user score.
+Show the π constant (pi) from JavaScript.
+Convert the string "50" to a number using implicit conversion and multiply it by 2. -->
+</head>
+<body>
+    <h3>Statistics widget results</h3>
+    <p id="demo"></p>
+    <script>
+        function random(min,max){
+          const num= Math.floor(Math.random() * (max - min + 1)) + min;
+          return num;
+        }
+        x = random(1,100);
+        const userscore =Number("75");
+        const difference =Math.abs(x - userscore);
+        const rounded = Math.round(Math.sqrt(userscore));
+        const pinum = Math.PI;
+        const conversion = "50" * 2;
+        
+
+        
+        let output = `
+          random number : ${x}<br>
+          user score : ${userscore}<br>
+          difference : ${difference}<br>
+          rounded square root : ${rounded}<br>
+          pi number : ${pinum}<br>
+          implicit conversion ("50" * 2): ${conversion}`;
+
+          
+          document.getElementById("demo").innerHTML = output;
+                 
+
+    </script>
+</body>
+</html>
