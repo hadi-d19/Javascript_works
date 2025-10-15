@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day6_cw</title>
+    <!-- You are helping design a simple product listing feature for an online grocery store. You have an array of
+      product names and an array of their prices. Your tasks are:
+
+Merge the product names and prices into one array in the format: "Product: Apple - Price: 50"
+
+Display all product entries using a loop.
+
+Filter and show only the products with prices greater than 50.
+
+Add a new product "Watermelon" with price 80 to the list, and then display the updated product list. -->
+
+
+</head>
+<body>
+    <h3>Online Grocery store</h3>
+    <h4>All Products</h4>
+    <p id = "demo"></p>
+    <h4>Price over 50</h4>
+    <p id = "demo1"></p>
+    <h4>Updated List</h4> 
+    <p id = "demo2"></p>
+
+    <script>
+        var productNames , prices
+         productNames = ["Apple","Orange","Banana","Guava"];
+         prices = [50,65,30,55];
+
+       let merge = [];
+       for (let i=0; i < productNames.length; i++){
+        let pdtentry = `Product : ${productNames[i]} - Price : ${prices[i]}`;
+        merge.push(pdtentry);
+       }
+       let allProducts = ""; 
+        for (let i = 0; i < merge.length; i++) {
+            allProducts += merge[i] + "<br>"; 
+        }
+        document.getElementById("demo").innerHTML = allProducts;
+
+
+        let over50 = ""; 
+        for (let i = 0; i < prices.length; i++) {
+        if(prices[i] > 50){      
+          over50 += `Product : ${productNames[i]} - Price : ${prices[i]}<br>`;
+            }
+        }
+        document.getElementById("demo1").innerHTML = over50;
+
+        productNames.push("Watermelon");
+        prices.push(60);
+
+        let updated = "";
+        for (let i = 0; i < productNames.length; i++) {
+            updated += `Product : ${productNames[i]} - Price : ${prices[i]} <br>`;
+        }
+        document.getElementById("demo2").innerHTML = updated;
+    </script>
+</body>
+</html>
