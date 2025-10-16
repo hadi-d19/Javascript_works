@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day7_hw</title>
+    <!-- Create a simple web-based event reminder tool.
+      The page should take a user's input of a past date (for example, their last birthday) and display:
+The year, month (name, not number), and day of that date.
+How many full years have passed since that date.
+A custom message that says:
+“It has been more than a year since that date.”
+or “It has been less than a year since that date.” -->
+</head>
+<body>
+    <h3>Display Details</h3>
+    <p id="demo"></p>
+    <h3>custom message</h3>
+    <p id="output"></p>
+    <script>
+        let lastBirthday = "2003-04-19";
+        const today = new Date();
+        const lastdate = new Date(lastBirthday);
+        const year = lastdate.getFullYear();
+        var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var month = months[lastdate.getMonth()];
+        const day = lastdate.getDate();
+    
+        let yearspassed = today.getFullYear() - lastdate.getFullYear();
+
+         let fullyearspass = new Date(today.getFullYear(), lastdate.getMonth(), lastdate.getDate());
+          if (today < fullyearspass){
+            yearspassed--;
+          } 
+          let result;
+          if (yearspassed >= 1){
+            result = "It has been more than a year since that date.";
+          }
+         else{
+            result = "It has been less than a year since that date."
+         }
+            document.getElementById("output").innerHTML = result;
+
+             const display =`Year : ${year} <br>
+        Month : ${month} <br>
+        Day : ${day}<br>
+        Years Passed : ${yearspassed}`;
+        document.getElementById("demo").innerHTML = display;
+    </script>
+</body>
+</html>
