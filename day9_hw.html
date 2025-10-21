@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day9_hw</title>
+    <!-- You are creating a simple comment filtering system for a blog site. 
+     You need to write a JavaScript function that takes a user's comment and performs the following:
+Check whether the comment contains any of the following banned words: "bad", "ugly", or "stupid" (case-insensitive).
+If it contains a banned word, replace it with "***" using a regular expression.
+Count how many numbers are mentioned in the comment.
+Count how many words in the comment begin with a capital letter.
+Return a final message with the cleaned comment, number count, and capitalized word count.
+Test the function with this comment:
+ "I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great. -->
+</head>
+<body>
+    <h3>filtering system</h3>
+    <p id="demo"></p>
+   <script>
+    var str = "I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great."
+    console.log(/bad|ugly|stupid/gi.test(str));
+    
+    var banned = /bad|ugly|stupid/gi;
+    var cleanedComment = str.replace(banned,"***");
+    console.log(cleanedComment);
+
+    var numMatch = str.match(/\d+/g);
+    var numCount = numMatch ? numMatch.length : 0 ;
+    console.log(numCount);
+
+    var capital = str.match(/\b[A-Z][a-z]*\b/g);
+    var capitalCount = capital ? capital.length : 0;
+    console.log(capitalCount);
+
+    var result = `Cleaned Comment = ${cleanedComment} <br>
+    Number Count = ${numCount} <br>
+    Capitalized word count = ${capitalCount}`;
+    
+    document.getElementById("demo").innerHTML = result;
+   </script> 
+</body>
+</html>
