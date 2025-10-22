@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day10_hw</title>
+    <!-- You received user feedback from a contact form in a JSON format. Your task is to:
+Convert the JSON string into a usable format.
+Use a named arrow function to check if the feedback contains the word "thank" (in any case like "Thank", "THANK", etc.).
+If the word is found, show a message "Positive feedback received".
+If the word is not found, show "Feedback noted".
+Use try-catch to handle any error if the JSON is invalid. -->
+</head>
+<body>
+    <script>
+        const feedback = '{"name":"zam", "email":"example@gmail.com", "message":"Hello! Thank You!"}';
+        const checkThanks =(msg) =>{
+                   return msg.toLowerCase().includes("thank");
+        }
+          try{
+           const feedbackobj =JSON.parse(feedback);
+            if(feedbackobj.message && checkThanks(feedbackobj.message)){
+                console.log("Positive feedback received.")
+            }
+            else{
+                console.log("Feedback noted.")
+            }
+          } catch(error){
+            console.error("Error Parsing",error.message)
+          }
+    </script>
+</body>
+</html>
