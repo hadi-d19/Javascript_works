@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day12_hw</title>
+<!-- Create a simple feedback web page that includes:
+A form with:
+    A text input for the user's name
+    A textarea for their feedback
+A submit button
+    When the form is submitted:
+   The input values (name and feedback) should display on the same page without refreshing.
+   A confirmation message (e.g., “Thanks for your feedback!”) should be shown in green.
+   After 5 seconds, the confirmation message should disappear automatically.
+When the mouse hovers over the feedback display, the text should turn blue. When the mouse leaves, it should return to black. -->
+</head>
+<style>
+    #confirmationMessage {
+            color: green; }
+     #feedbackDisplay:hover {
+            color: blue;
+        }
+    #feedbackDisplay{
+        color: black;
+    }
+</style>
+<body>
+    <h3>Feedback</h3>
+    <form id="feedbackForm">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" required placeholder="Enter Name">
+        <br><br>
+        <label for="feedbackInput">Feedback:</label>
+        <textarea id="feedbackInput" required placeholder="Enter Feedback"></textarea>
+        <br><br>
+        <button type="button" onclick="functionfeedback()">Submit</button>
+    </form>
+<p id="confirmationMessage"></p>
+<div id="feedbackDisplay"></div>
+<script>
+      function functionfeedback(){
+        const form = document.getElementById('feedbackForm');
+        const nameInput = document.getElementById('nameInput');
+        const feedbackInput = document.getElementById('feedbackInput');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const feedbackDisplay = document.getElementById('feedbackDisplay');
+
+        const name = nameInput.value;
+        const feedback = feedbackInput.value;
+        feedbackDisplay.innerHTML = `<b>${name}</b> says ${feedback}`;
+        confirmationMessage.textContent = 'Thanks for your feedback!';
+
+        setTimeout(() =>{
+           confirmationMessage.textContent='';
+        },5000);
+        nameInput.value = '';
+        feedbackInput.value = '';
+      }
+</script>
+</body>
+</html>
