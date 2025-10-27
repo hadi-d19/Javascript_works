@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day12_cw</title>
+ <!-- Create a simple web page with a text box, a submit button, and a paragraph. When a user enters text and clicks the button:
+The text should appear in the paragraph in blue color.
+When the user hovers over the paragraph, the text should turn green.
+When the user moves the mouse out of the paragraph, the text should turn back to blue.
+Use a form and prevent the page from reloading when the button is clicked. -->
+</head>
+<style>
+    #demo{
+        color: blue;
+        cursor: pointer;
+    }
+    #demo:hover{
+        color: green;
+    }
+</style>
+<body>
+    <h3>Simple Web page</h3>
+    <form id="myform">
+    <input name="name" id="name" placeholder="Enter to display">
+    <button type="button" id="submit" onclick="updateText()">Submit</button>
+    </form>
+    <p id="demo">hello</p>
+<script>
+
+function updateText() {         
+const nameInput = document.getElementById("name");
+const paragraph = document.getElementById("demo");
+paragraph.textContent = nameInput.value;
+ }
+ </script>
+</body>
+</html>
